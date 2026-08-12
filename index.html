@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>August Alexander — Offensive Security</title>
+<meta name="description" content="August Alexander — offensive security practitioner. eJPT certified, OSCP in progress. Active Directory, network and web exploitation, wireless/RF, ICS/OT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EAEDF0;
+    --card:#F6F7F9;
+    --ink:#12171C;
+    --ink-soft:#4A555F;
+    --rule:#C4CCD4;
+    --signal:#1F4E6B;
+    --flag:#A8471C;
+    --display:'Archivo',system-ui,sans-serif;
+    --body:'Source Serif 4',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.55;
+  }
+  .sheet{
+    max-width:1080px;
+    margin:0 auto;
+    padding:40px 28px 80px;
+  }
+
+  /* ---- masthead ---- */
+  header{
+    border-top:3px solid var(--ink);
+    padding-top:22px;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(2.1rem,6vw,3.4rem);
+    letter-spacing:-0.02em;
+    line-height:1;
+    margin:0 0 6px;
+  }
+  .role{
+    font-family:var(--mono);
+    font-size:.78rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--flag);
+    margin:0 0 18px;
+  }
+  .lede{
+    font-size:1.05rem;
+    max-width:62ch;
+    margin:0 0 20px;
+    color:var(--ink);
+  }
+  .contact{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 22px;
+    font-family:var(--mono);
+    font-size:.8rem;
+    padding-bottom:26px;
+    border-bottom:1px solid var(--rule);
+  }
+  .contact a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(31,78,107,.35)}
+  .contact a:hover{border-bottom-color:var(--signal)}
+  .contact span{color:var(--ink-soft)}
+
+  /* ---- layout ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:0 44px;
+    margin-top:34px;
+  }
+  aside{position:sticky;top:28px;align-self:start}
+  @media(max-width:860px){
+    .grid{grid-template-columns:1fr;gap:0}
+    aside{position:static}
+  }
+
+  /* ---- section headings ---- */
+  h2{
+    font-family:var(--mono);
+    font-weight:500;
+    font-size:.72rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:34px 0 14px;
+    padding-bottom:7px;
+    border-bottom:1px solid var(--rule);
+  }
+  aside h2:first-child,main h2:first-child{margin-top:0}
+
+  /* ---- sidebar blocks ---- */
+  .cert{margin-bottom:12px}
+  .cert b{font-family:var(--display);font-size:.95rem;display:block}
+  .cert span{font-size:.88rem;color:var(--ink-soft)}
+  .skill{margin-bottom:13px}
+  .skill b{
+    font-family:var(--mono);
+    font-size:.7rem;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--flag);
+    display:block;
+    margin-bottom:2px;
+  }
+  .skill p{margin:0;font-size:.9rem;line-height:1.45;color:var(--ink)}
+
+  /* ---- projects ---- */
+  article{
+    margin-bottom:26px;
+    padding-left:18px;
+    border-left:2px solid var(--rule);
+  }
+  article:hover{border-left-color:var(--flag)}
+  article h3{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:1.12rem;
+    letter-spacing:-0.01em;
+    margin:0 0 3px;
+  }
+  .when{
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:9px;
+  }
+  article ul{margin:0 0 12px;padding-left:17px}
+  article li{margin-bottom:6px}
+  .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+  }
+  .stack i{
+    font-style:normal;
+    font-family:var(--mono);
+    font-size:.68rem;
+    background:var(--card);
+    border:1px solid var(--rule);
+    color:var(--ink-soft);
+    padding:2px 7px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+
+  main > ul{padding-left:17px;margin:0}
+  main > ul li{margin-bottom:8px}
+
+  .edu b{font-family:var(--display);font-size:1.05rem}
+  .edu .when{margin-bottom:5px}
+  .edu p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+
+  footer{
+    margin-top:52px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+    font-family:var(--mono);
+    font-size:.72rem;
+    color:var(--ink-soft);
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:space-between;
+  }
+  footer a{color:var(--signal)}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  a:focus-visible{outline:2px solid var(--flag);outline-offset:2px}
+
+  /* ---- print: collapses to a clean PDF ---- */
+  @media print{
+    @page{margin:14mm}
+    body{background:#fff;font-size:10.2pt;line-height:1.38}
+    .sheet{padding:0;max-width:none}
+    .grid{display:block}
+    aside{margin-bottom:10px}
+    aside .skill p{font-size:9.4pt}
+    h2{margin:14px 0 7px;font-size:8pt}
+    article{page-break-inside:avoid;margin-bottom:12px}
+    .stack i{background:none;border:none;padding:0 6px 0 0;font-size:8pt}
+    .stack i:after{content:'\00B7';padding-left:6px;color:#999}
+    .stack i:last-child:after{content:''}
+    footer{display:none}
+    a{color:#000;border:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <h1>August Alexander</h1>
+    <p class="role">Offensive Security &middot; eJPT &middot; OSCP in progress</p>
+    <p class="lede">Computer science graduate and offensive security practitioner. Hands-on across Active Directory attack chains, network and web exploitation, wireless/RF assessment, and ICS/OT tradecraft &mdash; built on a self-designed seven-node enterprise cyber range I both operate and attack.</p>
+    <div class="contact">
+      <span>New Rochelle, NY</span>
+      <a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a>
+      <a href="https://github.com/august-alexander">github.com/august-alexander</a>
+      <a href="https://www.linkedin.com/in/august-alexander-rednaxela">linkedin.com/in/august-alexander-rednaxela</a>
+      <a href="August_Alexander_Resume.pdf">Download PDF</a>
+    </div>
+  </header>
+
+  <div class="grid">
+    <aside>
+      <h2>Certifications</h2>
+      <div class="cert"><b>OSCP</b><span>In progress &mdash; challenge labs complete</span></div>
+      <div class="cert"><b>eJPT</b><span>eLearnSecurity Junior Penetration Tester</span></div>
+
+      <h2>Technical Skills</h2>
+      <div class="skill"><b>Offensive Security</b><p>AD attack paths (Kerberoasting, NTLM relay, RBCD, golden ticket, gMSA abuse, child-to-parent escalation), Windows/Linux privilege escalation, web exploitation, phishing payloads, pivoting and tunneling</p></div>
+      <div class="skill"><b>Tooling</b><p>BloodHound, Impacket, Metasploit, Burp Suite, nmap, chisel, aircrack-ng, Kismet, Hashcat, Responder, CrackMapExec</p></div>
+      <div class="skill"><b>Infrastructure &amp; Cloud</b><p>AWS (Lambda, S3, CloudFront, EventBridge, Transit Gateway, Client VPN, IAM Identity Center SAML), Proxmox VE, Ceph, OPNsense, VLAN segmentation, LACP, PKI</p></div>
+      <div class="skill"><b>Monitoring &amp; ICS</b><p>CISA Malcolm, MISP, Grafana, Prometheus; Modbus TCP, OpenPLC, pymodbus</p></div>
+      <div class="skill"><b>Development</b><p>Python, Bash, PowerShell, Flask, SQLite, SQL, Git, Linux (Kali, Debian), Windows Server</p></div>
+    </aside>
+
+    <main>
+      <h2>Security Projects</h2>
+
+      <article>
+        <h3>Enterprise Cyber Range &mdash; 7-Node Proxmox Cluster</h3>
+        <span class="when">2023 &ndash; Present</span>
+        <ul>
+          <li>Designed and operate a seven-node Supermicro cluster as a full enterprise attack lab: Ceph RBD distributed storage, LACP-bonded 10G uplinks to an Arista switch, OPNsense routing, and VLAN segmentation isolating management, storage, and VM traffic.</li>
+          <li>Built hybrid cloud-to-lab connectivity with AWS Transit Gateway, site-to-site VPN, and Client VPN using IAM Identity Center SAML federation over a custom Easy-RSA PKI.</li>
+          <li>Stood up an ICS/OT scenario with OpenPLC and pymodbus, then executed an unauthenticated Modbus TCP write from a cloud-hosted Kali host against a live PLC &mdash; reproducing FrostyGoop-style tradecraft end to end.</li>
+          <li>Instrumented for blue-team visibility with CISA Malcolm, MISP, and Grafana/Prometheus dashboards across all nodes.</li>
+        </ul>
+        <div class="stack">
+          <i>Proxmox VE</i><i>Ceph</i><i>OPNsense</i><i>Arista L2/L3</i><i>LACP</i><i>VLAN design</i><i>AWS Transit Gateway</i><i>Client VPN</i><i>IAM Identity Center</i><i>Easy-RSA PKI</i><i>SAML</i><i>OpenPLC</i><i>pymodbus</i><i>Modbus TCP</i><i>Kali</i><i>Malcolm</i><i>MISP</i><i>Grafana</i><i>Prometheus</i>
+        </div>
+      </article>
+
+      <article>
+        <h3>Serverless Threat Intelligence Pipeline</h3>
+        <span class="when">2025 &ndash; Present &middot; rednaxela.technology</span>
+        <ul>
+          <li>Built an event-driven AWS pipeline ingesting CVE records, ransomware disclosures, and open threat intelligence, normalizing heterogeneous sources into a unified JSON schema and publishing a curated feed via S3 and CloudFront.</li>
+          <li>Integrated the NVD API for vulnerability enrichment; operating under real cost and reliability constraints with budget controls and monitoring.</li>
+        </ul>
+        <div class="stack">
+          <i>Python</i><i>AWS Lambda</i><i>EventBridge</i><i>S3</i><i>CloudFront</i><i>IAM</i><i>CloudWatch</i><i>JSON normalization</i><i>RSS</i><i>NVD API</i><i>REST</i>
+        </div>
+      </article>
+
+      <article>
+        <h3>Wireless Site Survey &amp; Wardriving Rig</h3>
+        <span class="when">2025 &ndash; Present</span>
+        <ul>
+          <li>Assembled a headless 802.11 survey platform running Kismet on a WiFi Pineapple MK7 with an MT7612U adapter for monitor-mode capture and a u-blox GPS receiver via gpsd for geotagged results.</li>
+          <li>Managed the full operational lifecycle: radio/VAP separation to keep management interfaces out of capture, firmware management, and offline log extraction and analysis.</li>
+        </ul>
+        <div class="stack">
+          <i>Kismet</i><i>WiFi Pineapple MK7</i><i>OpenWrt</i><i>MT7612U monitor mode</i><i>802.11 a/b/g/n/ac</i><i>aircrack-ng</i><i>gpsd</i><i>u-blox GPS</i><i>Linux CLI</i><i>SSH</i>
+        </div>
+      </article>
+
+      <h2>Offensive Security Training</h2>
+      <ul>
+        <li>Completed OSCP Challenge Labs B and C plus the Zeus Corp, Relia, Poseidon, Laser, and feast.com multi-machine Active Directory environments &mdash; full compromise from external foothold through domain and forest-level escalation.</li>
+        <li>Maintain a cross-linked Obsidian knowledge base of 70+ atomic reference notes spanning enumeration, privilege escalation, AD attacks, web exploitation, and pivoting, built from machine writeups and reused as an operational playbook.</li>
+        <li>Competitor, RF Hackers Sanctuary RF CTF at DEF CON 2026. Volunteer, SummerCon 2026 and GNU Radio Conference 2024.</li>
+      </ul>
+
+      <h2>Education</h2>
+      <div class="edu">
+        <b>Rollins College &mdash; B.S. Computer Science, Minor in Mathematics</b>
+        <span class="when">Winter Park, FL &middot; 2023</span>
+        <p>Coursework: Discrete Mathematics, Linear Algebra, Probability and Statistics, Calculus I&ndash;III</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <span>August Alexander &mdash; New Rochelle, NY</span>
+    <span><a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
