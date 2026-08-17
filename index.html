@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EAEDF0;
-    --card:#F6F7F9;
-    --ink:#12171C;
-    --ink-soft:#4A555F;
-    --rule:#C4CCD4;
-    --signal:#1F4E6B;
-    --flag:#A8471C;
+    --paper:#0E1418;
+    --card:#161E24;
+    --ink:#EEF2F0;
+    --ink-soft:#9DAAA6;
+    --rule:#2A353B;
+    --signal:#7BE0A8;
+    --flag:#5CD08A;
     --display:'Archivo',system-ui,sans-serif;
     --body:'Source Serif 4',Georgia,serif;
     --mono:'IBM Plex Mono',ui-monospace,monospace;
@@ -73,7 +73,7 @@
     padding-bottom:26px;
     border-bottom:1px solid var(--rule);
   }
-  .contact a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(31,78,107,.35)}
+  .contact a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(123,224,168,.35)}
   .contact a:hover{border-bottom-color:var(--signal)}
   .contact span{color:var(--ink-soft)}
 
@@ -190,18 +190,21 @@
   /* ---- print: collapses to a clean PDF ---- */
   @media print{
     @page{margin:14mm}
-    body{background:#fff;font-size:10.2pt;line-height:1.38}
+    body{background:#fff;color:#12171C;font-size:10.2pt;line-height:1.38}
     .sheet{padding:0;max-width:none}
+    header{border-top-color:#12171C}
+    h1{color:#12171C}
+    .lede,article > p,.cert b,.edu b,.skill p{color:#12171C}
     .grid{display:block}
     aside{margin-bottom:10px}
     aside .skill p{font-size:9.4pt}
-    h2{margin:14px 0 7px;font-size:8pt}
+    h2{margin:14px 0 7px;font-size:8pt;color:#4A555F}
     article{page-break-inside:avoid;margin-bottom:12px}
-    .stack i{background:none;border:none;padding:0 6px 0 0;font-size:8pt}
+    .stack i{background:none;border:none;padding:0 6px 0 0;font-size:8pt;color:#4A555F}
     .stack i:after{content:'\00B7';padding-left:6px;color:#999}
     .stack i:last-child:after{content:''}
     footer{display:none}
-    a{color:#000;border:none!important}
+    a{color:#12171C;border:none!important}
   }
 </style>
 </head>
