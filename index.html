@@ -141,8 +141,11 @@
     display:block;
     margin-bottom:9px;
   }
+  article h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
+  article h3 a:hover{border-bottom-color:var(--flag);color:var(--flag)}
   article ul{margin:0 0 12px;padding-left:17px}
   article li{margin-bottom:6px}
+  article > p{margin:0 0 11px;max-width:66ch}
   .stack{
     display:flex;
     flex-wrap:wrap;
@@ -207,8 +210,8 @@
 
   <header>
     <h1>August Alexander</h1>
-    <p class="role">Offensive Security &middot; eJPT &middot; OSCP in progress</p>
-    <p class="lede">Computer science graduate and offensive security practitioner. Hands-on across Active Directory attack chains, network and web exploitation, wireless/RF assessment, and ICS/OT tradecraft &mdash; built on a self-designed seven-node enterprise cyber range I both operate and attack.</p>
+    <p class="role">Offensive Security &middot; eJPT &middot; SANS SEC542 &middot; OSCP in progress</p>
+    <p class="lede">Computer science graduate working in offensive security. I build and attack a seven-node enterprise lab covering Linux and web exploitation, network penetration testing, wireless/RF, and ICS/OT.</p>
     <div class="contact">
       <span>New Rochelle, NY</span>
       <a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a>
@@ -220,30 +223,25 @@
 
   <div class="grid">
     <aside>
-      <h2>Certifications</h2>
-      <div class="cert"><b>OSCP</b><span>In progress &mdash; challenge labs complete</span></div>
-      <div class="cert"><b>eJPT</b><span>eLearnSecurity Junior Penetration Tester</span></div>
-
       <h2>Technical Skills</h2>
-      <div class="skill"><b>Offensive Security</b><p>AD attack paths (Kerberoasting, NTLM relay, RBCD, golden ticket, gMSA abuse, child-to-parent escalation), Windows/Linux privilege escalation, web exploitation, phishing payloads, pivoting and tunneling</p></div>
-      <div class="skill"><b>Tooling</b><p>BloodHound, Impacket, Metasploit, Burp Suite, nmap, chisel, aircrack-ng, Kismet, Hashcat, Responder, CrackMapExec</p></div>
+      <div class="skill"><b>Linux &amp; Web</b><p>Web application exploitation, Linux privilege escalation, phishing payload delivery, pivoting and tunneling, post-exploitation and shell handling</p></div>
+      <div class="skill"><b>Tooling</b><p>Burp Suite, nmap, Metasploit, Impacket, chisel, Hashcat, Responder, CrackMapExec, aircrack-ng, Kismet, BloodHound</p></div>
+      <div class="skill"><b>Active Directory</b><p>Kerberoasting, NTLM relay, RBCD, golden ticket, gMSA abuse, child-to-parent escalation, Windows privilege escalation</p></div>
       <div class="skill"><b>Infrastructure &amp; Cloud</b><p>AWS (Lambda, S3, CloudFront, EventBridge, Transit Gateway, Client VPN, IAM Identity Center SAML), Proxmox VE, Ceph, OPNsense, VLAN segmentation, LACP, PKI</p></div>
       <div class="skill"><b>Monitoring &amp; ICS</b><p>CISA Malcolm, MISP, Grafana, Prometheus; Modbus TCP, OpenPLC, pymodbus</p></div>
       <div class="skill"><b>Development</b><p>Python, Bash, PowerShell, Flask, SQLite, SQL, Git, Linux (Kali, Debian), Windows Server</p></div>
     </aside>
 
     <main>
-      <h2>Security Projects</h2>
+      <h2>Volunteer &amp; CTF</h2>
+      <p>Competitor, RF Hackers Sanctuary RF CTF at DEF CON 2026. Volunteer at HOPE 2026, SummerCon 2026, and GNU Radio Conference 2024.</p>
+
+      <h2>Projects</h2>
 
       <article>
-        <h3>Enterprise Cyber Range &mdash; 7-Node Proxmox Cluster</h3>
-        <span class="when">2023 &ndash; Present</span>
-        <ul>
-          <li>Designed and operate a seven-node Supermicro cluster as a full enterprise attack lab: Ceph RBD distributed storage, LACP-bonded 10G uplinks to an Arista switch, OPNsense routing, and VLAN segmentation isolating management, storage, and VM traffic.</li>
-          <li>Built hybrid cloud-to-lab connectivity with AWS Transit Gateway, site-to-site VPN, and Client VPN using IAM Identity Center SAML federation over a custom Easy-RSA PKI.</li>
-          <li>Stood up an ICS/OT scenario with OpenPLC and pymodbus, then executed an unauthenticated Modbus TCP write from a cloud-hosted Kali host against a live PLC &mdash; reproducing FrostyGoop-style tradecraft end to end.</li>
-          <li>Instrumented for blue-team visibility with CISA Malcolm, MISP, and Grafana/Prometheus dashboards across all nodes.</li>
-        </ul>
+        <h3>Enterprise Cyber Range</h3>
+        <span class="when">2023 &ndash; Present &middot; 7-node Proxmox cluster</span>
+        <p>A seven-node Proxmox cluster I built and run as a full enterprise attack lab, with Ceph storage, VLAN segmentation, hybrid AWS connectivity, and a live PLC target for ICS attack scenarios.</p>
         <div class="stack">
           <i>Proxmox VE</i><i>Ceph</i><i>OPNsense</i><i>Arista L2/L3</i><i>LACP</i><i>VLAN design</i><i>AWS Transit Gateway</i><i>Client VPN</i><i>IAM Identity Center</i><i>Easy-RSA PKI</i><i>SAML</i><i>OpenPLC</i><i>pymodbus</i><i>Modbus TCP</i><i>Kali</i><i>Malcolm</i><i>MISP</i><i>Grafana</i><i>Prometheus</i>
         </div>
@@ -252,45 +250,67 @@
       <article>
         <h3>Serverless Threat Intelligence Pipeline</h3>
         <span class="when">2025 &ndash; Present &middot; rednaxela.technology</span>
-        <ul>
-          <li>Built an event-driven AWS pipeline ingesting CVE records, ransomware disclosures, and open threat intelligence, normalizing heterogeneous sources into a unified JSON schema and publishing a curated feed via S3 and CloudFront.</li>
-          <li>Integrated the NVD API for vulnerability enrichment; operating under real cost and reliability constraints with budget controls and monitoring.</li>
-        </ul>
+        <p>An event-driven AWS pipeline that ingests CVE records, ransomware disclosures, and open threat intel, normalizes them into one schema, and publishes a curated feed.</p>
         <div class="stack">
           <i>Python</i><i>AWS Lambda</i><i>EventBridge</i><i>S3</i><i>CloudFront</i><i>IAM</i><i>CloudWatch</i><i>JSON normalization</i><i>RSS</i><i>NVD API</i><i>REST</i>
         </div>
       </article>
 
       <article>
-        <h3>Wireless Site Survey &amp; Wardriving Rig</h3>
+        <h3>ML Network Baselining &amp; Anomaly Detection</h3>
+        <span class="when">2024 &middot; from SANS SEC595</span>
+        <p>Stood up a WordPress site in AWS, mirrored its live traffic through a PCA analysis script, and turned the Zeek output into a visual baseline so an admin can spot when activity deviates from normal.</p>
+        <div class="stack">
+          <i>AWS</i><i>VPC traffic mirroring</i><i>Zeek</i><i>PCA</i><i>Python</i><i>anomaly detection</i><i>data visualization</i>
+        </div>
+      </article>
+
+      <article>
+        <h3>Wireless Site Survey Rig</h3>
         <span class="when">2025 &ndash; Present</span>
-        <ul>
-          <li>Assembled a headless 802.11 survey platform running Kismet on a WiFi Pineapple MK7 with an MT7612U adapter for monitor-mode capture and a u-blox GPS receiver via gpsd for geotagged results.</li>
-          <li>Managed the full operational lifecycle: radio/VAP separation to keep management interfaces out of capture, firmware management, and offline log extraction and analysis.</li>
-        </ul>
+        <p>A headless 802.11 survey platform running Kismet on a WiFi Pineapple MK7, with monitor-mode capture and GPS tagging for wardriving and site surveys.</p>
         <div class="stack">
           <i>Kismet</i><i>WiFi Pineapple MK7</i><i>OpenWrt</i><i>MT7612U monitor mode</i><i>802.11 a/b/g/n/ac</i><i>aircrack-ng</i><i>gpsd</i><i>u-blox GPS</i><i>Linux CLI</i><i>SSH</i>
         </div>
       </article>
 
-      <h2>Offensive Security Training</h2>
-      <ul>
-        <li>Completed OSCP Challenge Labs B and C plus the Zeus Corp, Relia, Poseidon, Laser, and feast.com multi-machine Active Directory environments &mdash; full compromise from external foothold through domain and forest-level escalation.</li>
-        <li>Maintain a cross-linked Obsidian knowledge base of 70+ atomic reference notes spanning enumeration, privilege escalation, AD attacks, web exploitation, and pivoting, built from machine writeups and reused as an operational playbook.</li>
-        <li>Competitor, RF Hackers Sanctuary RF CTF at DEF CON 2026. Volunteer, SummerCon 2026 and GNU Radio Conference 2024.</li>
-      </ul>
+      <article>
+        <h3><a href="https://github.com/KyberCloud/CMS-484-CS_Capstone">Sports Predictive Modeling Platform</a></h3>
+        <span class="when">2024 &middot; CS capstone, four-person team</span>
+        <p>Led a four-person capstone team building an NBA prediction system that pulled league data, computed advanced metrics like PER and box plus/minus, and returned team and player forecasts through a visual interface.</p>
+        <div class="stack">
+          <i>Python</i><i>nba_api</i><i>predictive modeling</i><i>data visualization</i><i>team lead</i>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://github.com/KyberCloud/Sorting_Algorithm_Project">Sorting Algorithm Benchmark</a></h3>
+        <span class="when">2022 &middot; CS50 final project</span>
+        <p>A Python harness that benchmarks seven sorting algorithms against random, pre-sorted, reversed, and half-partitioned datasets at configurable sizes, then plots the runtime results.</p>
+        <div class="stack">
+          <i>Python</i><i>algorithm analysis</i><i>Plotly</i><i>benchmarking</i>
+        </div>
+      </article>
+
+      <h2>Certifications</h2>
+      <div class="cert"><b>OSCP</b><span>In progress &mdash; challenge labs and 5 multi-machine AD sets complete</span></div>
+      <div class="cert"><b>eJPT</b><span>eLearnSecurity Junior Penetration Tester</span></div>
+
+      <h2>SANS Courses</h2>
+      <div class="cert"><b>SEC542</b><span>Web App Penetration Testing and Ethical Hacking, 2025</span></div>
+      <div class="cert"><b>SEC595</b><span>Applied Data Science and AI/Machine Learning for Cybersecurity, 2024</span></div>
 
       <h2>Education</h2>
       <div class="edu">
-        <b>Rollins College &mdash; B.S. Computer Science, Minor in Mathematics</b>
-        <span class="when">Winter Park, FL &middot; 2023</span>
-        <p>Coursework: Discrete Mathematics, Linear Algebra, Probability and Statistics, Calculus I&ndash;III</p>
+        <b>B.S. Computer Science, Minor in Mathematics</b>
+        <span class="when">Rollins College &middot; Winter Park, FL &middot; 2023</span>
+        <p>Discrete Mathematics, Linear Algebra, Probability and Statistics, Calculus I&ndash;III</p>
       </div>
     </main>
   </div>
 
   <footer>
-    <span>August Alexander &mdash; New Rochelle, NY</span>
+    <span>August Alexander &middot; New Rochelle, NY</span>
     <span><a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a></span>
   </footer>
 
