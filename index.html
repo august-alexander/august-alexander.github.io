@@ -9,313 +9,305 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#0E1418;
-    --card:#161E24;
-    --ink:#EEF2F0;
-    --ink-soft:#9DAAA6;
-    --rule:#2A353B;
-    --signal:#7BE0A8;
-    --flag:#5CD08A;
-    --display:'Archivo',system-ui,sans-serif;
-    --body:'Source Serif 4',Georgia,serif;
-    --mono:'IBM Plex Mono',ui-monospace,monospace;
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:var(--body);
-    font-size:16px;
-    line-height:1.55;
-  }
-  .sheet{
-    max-width:1080px;
-    margin:0 auto;
-    padding:40px 28px 80px;
-  }
-
-  /* ---- masthead ---- */
-  header{
-    border-top:3px solid var(--ink);
-    padding-top:22px;
-  }
-  h1{
-    font-family:var(--display);
-    font-weight:700;
-    font-size:clamp(2.1rem,6vw,3.4rem);
-    letter-spacing:-0.02em;
-    line-height:1;
-    margin:0 0 6px;
-  }
-  .role{
-    font-family:var(--mono);
-    font-size:.78rem;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--flag);
-    margin:0 0 18px;
-  }
-  .lede{
-    font-size:1.05rem;
-    max-width:62ch;
-    margin:0 0 20px;
-    color:var(--ink);
-  }
-  .contact{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px 22px;
-    font-family:var(--mono);
-    font-size:.8rem;
-    padding-bottom:26px;
-    border-bottom:1px solid var(--rule);
-  }
-  .contact a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(123,224,168,.35)}
-  .contact a:hover{border-bottom-color:var(--signal)}
-  .contact span{color:var(--ink-soft)}
-
-  /* ---- layout ---- */
-  .grid{
-    display:grid;
-    grid-template-columns:250px 1fr;
-    gap:0 44px;
-    margin-top:34px;
-  }
-  aside{position:sticky;top:28px;align-self:start}
-  @media(max-width:860px){
-    .grid{grid-template-columns:1fr;gap:0}
-    aside{position:static}
-  }
-
-  /* ---- section headings ---- */
-  h2{
-    font-family:var(--mono);
-    font-weight:500;
-    font-size:.72rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    margin:34px 0 14px;
-    padding-bottom:7px;
-    border-bottom:1px solid var(--rule);
-  }
-  aside h2:first-child,main h2:first-child{margin-top:0}
-
-  /* ---- sidebar blocks ---- */
-  .cert{margin-bottom:12px}
-  .cert b{font-family:var(--display);font-size:.95rem;display:block}
-  .cert span{font-size:.88rem;color:var(--ink-soft)}
-  .skill{margin-bottom:13px}
-  .skill b{
-    font-family:var(--mono);
-    font-size:.7rem;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    color:var(--flag);
-    display:block;
-    margin-bottom:2px;
-  }
-  .skill p{margin:0;font-size:.9rem;line-height:1.45;color:var(--ink)}
-
-  /* ---- projects ---- */
-  article{
-    margin-bottom:26px;
-    padding-left:18px;
-    border-left:2px solid var(--rule);
-  }
-  article:hover{border-left-color:var(--flag)}
-  article h3{
-    font-family:var(--display);
-    font-weight:600;
-    font-size:1.12rem;
-    letter-spacing:-0.01em;
-    margin:0 0 3px;
-  }
-  .when{
-    font-family:var(--mono);
-    font-size:.72rem;
-    color:var(--ink-soft);
-    display:block;
-    margin-bottom:9px;
-  }
-  article h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
-  article h3 a:hover{border-bottom-color:var(--flag);color:var(--flag)}
-  article ul{margin:0 0 12px;padding-left:17px}
-  article li{margin-bottom:6px}
-  article > p{margin:0 0 11px;max-width:66ch}
-  .stack{
-    display:flex;
-    flex-wrap:wrap;
-    gap:5px;
-  }
-  .stack i{
-    font-style:normal;
-    font-family:var(--mono);
-    font-size:.68rem;
-    background:var(--card);
-    border:1px solid var(--rule);
-    color:var(--ink-soft);
-    padding:2px 7px;
-    border-radius:2px;
-    white-space:nowrap;
-  }
-
-  main > ul{padding-left:17px;margin:0}
-  main > ul li{margin-bottom:8px}
-
-  .edu b{font-family:var(--display);font-size:1.05rem}
-  .edu .when{margin-bottom:5px}
-  .edu p{margin:0;font-size:.92rem;color:var(--ink-soft)}
-
-  footer{
-    margin-top:52px;
-    padding-top:16px;
-    border-top:1px solid var(--rule);
-    font-family:var(--mono);
-    font-size:.72rem;
-    color:var(--ink-soft);
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-    justify-content:space-between;
-  }
-  footer a{color:var(--signal)}
-
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-  a:focus-visible{outline:2px solid var(--flag);outline-offset:2px}
-
-  /* ---- print: collapses to a clean PDF ---- */
-  @media print{
-    @page{margin:14mm}
-    body{background:#fff;color:#12171C;font-size:10.2pt;line-height:1.38}
-    .sheet{padding:0;max-width:none}
-    header{border-top-color:#12171C}
-    h1{color:#12171C}
-    .lede,article > p,.cert b,.edu b,.skill p{color:#12171C}
-    .grid{display:block}
-    aside{margin-bottom:10px}
-    aside .skill p{font-size:9.4pt}
-    h2{margin:14px 0 7px;font-size:8pt;color:#4A555F}
-    article{page-break-inside:avoid;margin-bottom:12px}
-    .stack i{background:none;border:none;padding:0 6px 0 0;font-size:8pt;color:#4A555F}
-    .stack i:after{content:'\00B7';padding-left:6px;color:#999}
-    .stack i:last-child:after{content:''}
-    footer{display:none}
-    a{color:#12171C;border:none!important}
-  }
+:root{
+--paper:#0E1418;
+--card:#161E24;
+--ink:#EEF2F0;
+--ink-soft:#9DAAA6;
+--rule:#2A353B;
+--signal:#7BE0A8;
+--flag:#5CD08A;
+--display:'Archivo',system-ui,sans-serif;
+--body:'Source Serif 4',Georgia,serif;
+--mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+margin:0;
+background:var(--paper);
+color:var(--ink);
+font-family:var(--body);
+font-size:16px;
+line-height:1.55;
+}
+.sheet{
+max-width:1080px;
+margin:0 auto;
+padding:40px 28px 80px;
+}
+/* ---- masthead ---- */
+header{
+border-top:3px solid var(--ink);
+padding-top:22px;
+}
+h1{
+font-family:var(--display);
+font-weight:700;
+font-size:clamp(2.1rem,6vw,3.4rem);
+letter-spacing:-0.02em;
+line-height:1;
+margin:0 0 6px;
+}
+.role{
+font-family:var(--mono);
+font-size:.78rem;
+letter-spacing:.16em;
+text-transform:uppercase;
+color:var(--flag);
+margin:0 0 18px;
+}
+.lede{
+font-size:1.05rem;
+max-width:62ch;
+margin:0 0 20px;
+color:var(--ink);
+}
+.contact{
+display:flex;
+flex-wrap:wrap;
+gap:8px 22px;
+font-family:var(--mono);
+font-size:.8rem;
+padding-bottom:26px;
+border-bottom:1px solid var(--rule);
+}
+.contact a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(123,224,168,.35)}
+.contact a:hover{border-bottom-color:var(--signal)}
+.contact span{color:var(--ink-soft)}
+/* ---- layout ---- */
+.grid{
+display:grid;
+grid-template-columns:250px 1fr;
+gap:0 44px;
+margin-top:34px;
+}
+aside{position:sticky;top:28px;align-self:start}
+@media(max-width:860px){
+.grid{grid-template-columns:1fr;gap:0}
+aside{position:static}
+}
+/* ---- section headings ---- */
+h2{
+font-family:var(--mono);
+font-weight:500;
+font-size:.72rem;
+letter-spacing:.2em;
+text-transform:uppercase;
+color:var(--ink-soft);
+margin:34px 0 14px;
+padding-bottom:7px;
+border-bottom:1px solid var(--rule);
+}
+aside h2:first-child,main h2:first-child{margin-top:0}
+/* ---- sidebar blocks ---- */
+.cert{margin-bottom:12px}
+.cert b{font-family:var(--display);font-size:.95rem;display:block}
+.cert span{font-size:.88rem;color:var(--ink-soft)}
+.skill{margin-bottom:13px}
+.skill b{
+font-family:var(--mono);
+font-size:.7rem;
+letter-spacing:.09em;
+text-transform:uppercase;
+color:var(--flag);
+display:block;
+margin-bottom:2px;
+}
+.skill p{margin:0;font-size:.9rem;line-height:1.45;color:var(--ink)}
+/* ---- projects ---- */
+article{
+margin-bottom:26px;
+padding-left:18px;
+border-left:2px solid var(--rule);
+}
+article:hover{border-left-color:var(--flag)}
+article h3{
+font-family:var(--display);
+font-weight:600;
+font-size:1.12rem;
+letter-spacing:-0.01em;
+margin:0 0 3px;
+}
+.when{
+font-family:var(--mono);
+font-size:.72rem;
+color:var(--ink-soft);
+display:block;
+margin-bottom:9px;
+}
+.when a{color:var(--signal);text-decoration:none;border-bottom:1px solid rgba(123,224,168,.35)}
+.when a:hover{border-bottom-color:var(--signal);color:var(--flag)}
+article h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule)}
+article h3 a:hover{border-bottom-color:var(--flag);color:var(--flag)}
+article ul{margin:0 0 12px;padding-left:17px}
+article li{margin-bottom:6px}
+article > p{margin:0 0 11px;max-width:66ch}
+.stack{
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+}
+.stack i{
+font-style:normal;
+font-family:var(--mono);
+font-size:.68rem;
+background:var(--card);
+border:1px solid var(--rule);
+color:var(--ink-soft);
+padding:2px 7px;
+border-radius:2px;
+white-space:nowrap;
+}
+main > ul{padding-left:17px;margin:0}
+main > ul li{margin-bottom:8px}
+.edu b{font-family:var(--display);font-size:1.05rem}
+.edu .when{margin-bottom:5px}
+.edu p{margin:0;font-size:.92rem;color:var(--ink-soft)}
+footer{
+margin-top:52px;
+padding-top:16px;
+border-top:1px solid var(--rule);
+font-family:var(--mono);
+font-size:.72rem;
+color:var(--ink-soft);
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+justify-content:space-between;
+}
+footer a{color:var(--signal)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+a:focus-visible{outline:2px solid var(--flag);outline-offset:2px}
+/* ---- print: collapses to a clean PDF ---- */
+@media print{
+@page{margin:14mm}
+body{background:#fff;color:#12171C;font-size:10.2pt;line-height:1.38}
+.sheet{padding:0;max-width:none}
+header{border-top-color:#12171C}
+h1{color:#12171C}
+.lede,article > p,.cert b,.edu b,.skill p{color:#12171C}
+.grid{display:block}
+aside{margin-bottom:10px}
+aside .skill p{font-size:9.4pt}
+h2{margin:14px 0 7px;font-size:8pt;color:#4A555F}
+article{page-break-inside:avoid;margin-bottom:12px}
+.stack i{background:none;border:none;padding:0 6px 0 0;font-size:8pt;color:#4A555F}
+.stack i:after{content:'\00B7';padding-left:6px;color:#999}
+.stack i:last-child:after{content:''}
+footer{display:none}
+a{color:#12171C;border:none!important}
+}
 </style>
 </head>
 <body>
 <div class="sheet">
 
-  <header>
-    <h1>August Alexander</h1>
-    <p class="role">Offensive Security &middot; eJPT &middot; SANS SEC542 &middot; OSCP in progress</p>
-    <p class="lede">Computer science graduate working in offensive security. I build and attack a seven-node enterprise lab covering Linux and web exploitation, network penetration testing, wireless/RF, and ICS/OT.</p>
-    <div class="contact">
-      <span>New Rochelle, NY</span>
-      <a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a>
-      <a href="https://github.com/august-alexander">github.com/august-alexander</a>
-      <a href="https://www.linkedin.com/in/august-alexander-rednaxela">linkedin.com/in/august-alexander-rednaxela</a>
-      <a href="August_Alexander_Resume.pdf">Download PDF</a>
-    </div>
-  </header>
+<header>
+<h1>August Alexander</h1>
+<p class="role">Offensive Security &middot; eJPT &middot; SANS SEC542 &middot; OSCP in progress</p>
+<p class="lede">Computer science graduate working in offensive security. I build and attack a seven-node enterprise lab covering Linux and web exploitation, network penetration testing, wireless/RF, and ICS/OT.</p>
+<div class="contact">
+<span>New Rochelle, NY</span>
+<a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a>
+<a href="https://github.com/august-alexander">github.com/august-alexander</a>
+<a href="https://www.linkedin.com/in/august-alexander-rednaxela">linkedin.com/in/august-alexander-rednaxela</a>
+<a href="August_Alexander_Resume.pdf">Download PDF</a>
+</div>
+</header>
 
-  <div class="grid">
-    <aside>
-      <h2>Technical Skills</h2>
-      <div class="skill"><b>Linux &amp; Web</b><p>Web application exploitation, Linux privilege escalation, phishing payload delivery, pivoting and tunneling, post-exploitation and shell handling</p></div>
-      <div class="skill"><b>Tooling</b><p>Burp Suite, nmap, Metasploit, Impacket, chisel, Hashcat, Responder, CrackMapExec, aircrack-ng, Kismet, BloodHound</p></div>
-      <div class="skill"><b>Active Directory</b><p>Kerberoasting, NTLM relay, RBCD, golden ticket, gMSA abuse, child-to-parent escalation, Windows privilege escalation</p></div>
-      <div class="skill"><b>Infrastructure &amp; Cloud</b><p>AWS (Lambda, S3, CloudFront, EventBridge, Transit Gateway, Client VPN, IAM Identity Center SAML), Proxmox VE, Ceph, OPNsense, VLAN segmentation, LACP, PKI</p></div>
-      <div class="skill"><b>Monitoring &amp; ICS</b><p>CISA Malcolm, MISP, Grafana, Prometheus; Modbus TCP, OpenPLC, pymodbus</p></div>
-      <div class="skill"><b>Development</b><p>Python, Bash, PowerShell, Flask, SQLite, SQL, Git, Linux (Kali, Debian), Windows Server</p></div>
-    </aside>
+<div class="grid">
+<aside>
+<h2>Technical Skills</h2>
+<div class="skill"><b>Linux &amp; Web</b><p>Web application exploitation, Linux privilege escalation, phishing payload delivery, pivoting and tunneling, post-exploitation and shell handling</p></div>
+<div class="skill"><b>Tooling</b><p>Burp Suite, nmap, Metasploit, Impacket, chisel, Hashcat, Responder, CrackMapExec, aircrack-ng, Kismet, BloodHound</p></div>
+<div class="skill"><b>Active Directory</b><p>Kerberoasting, NTLM relay, RBCD, golden ticket, gMSA abuse, child-to-parent escalation, Windows privilege escalation</p></div>
+<div class="skill"><b>Infrastructure &amp; Cloud</b><p>AWS (Lambda, S3, CloudFront, EventBridge, Transit Gateway, Client VPN, IAM Identity Center SAML), Proxmox VE, Ceph, OPNsense, VLAN segmentation, LACP, PKI</p></div>
+<div class="skill"><b>Monitoring &amp; ICS</b><p>CISA Malcolm, MISP, Grafana, Prometheus; Modbus TCP, OpenPLC, pymodbus</p></div>
+<div class="skill"><b>Development</b><p>Python, Bash, PowerShell, Flask, SQLite, SQL, Git, Linux (Kali, Debian), Windows Server</p></div>
+</aside>
 
-    <main>
-      <h2>Volunteer</h2>
-      <p>HOPE 2026, SummerCon 2026, and GNU Radio Conference 2024.</p>
+<main>
+<h2>Volunteer</h2>
+<p>HOPE 2026, SummerCon 2026, and GNU Radio Conference 2024.</p>
 
-      <h2>Projects</h2>
+<h2>Projects</h2>
 
-      <article>
-        <h3>Enterprise Cyber Range</h3>
-        <span class="when">2023 &ndash; Present &middot; 7-node Proxmox cluster</span>
-        <p>A seven-node Proxmox cluster I built and run as a full enterprise attack lab, with Ceph storage, VLAN segmentation, hybrid AWS connectivity, and a live PLC target for ICS attack scenarios.</p>
-        <div class="stack">
-          <i>Proxmox VE</i><i>Ceph</i><i>OPNsense</i><i>Arista L2/L3</i><i>LACP</i><i>VLAN design</i><i>AWS Transit Gateway</i><i>Client VPN</i><i>IAM Identity Center</i><i>Easy-RSA PKI</i><i>SAML</i><i>OpenPLC</i><i>pymodbus</i><i>Modbus TCP</i><i>Kali</i><i>Malcolm</i><i>MISP</i><i>Grafana</i><i>Prometheus</i>
-        </div>
-      </article>
+<article>
+<h3>Enterprise Cyber Range</h3>
+<span class="when">2023 &ndash; Present &middot; 7-node Proxmox cluster</span>
+<p>A seven-node Proxmox cluster I built and run as a full enterprise attack lab, with Ceph storage, VLAN segmentation, hybrid AWS connectivity, and a live PLC target for ICS attack scenarios.</p>
+<div class="stack">
+<i>Proxmox VE</i><i>Ceph</i><i>OPNsense</i><i>Arista L2/L3</i><i>LACP</i><i>VLAN design</i><i>AWS Transit Gateway</i><i>Client VPN</i><i>IAM Identity Center</i><i>Easy-RSA PKI</i><i>SAML</i><i>OpenPLC</i><i>pymodbus</i><i>Modbus TCP</i><i>Kali</i><i>Malcolm</i><i>MISP</i><i>Grafana</i><i>Prometheus</i>
+</div>
+</article>
 
-      <article>
-        <h3>Serverless Threat Intelligence Pipeline</h3>
-        <span class="when">2025 &ndash; Present &middot; rednaxela.technology</span>
-        <p>An event-driven AWS pipeline that ingests CVE records, ransomware disclosures, and open threat intel, normalizes them into one schema, and publishes a curated feed.</p>
-        <div class="stack">
-          <i>Python</i><i>AWS Lambda</i><i>EventBridge</i><i>S3</i><i>CloudFront</i><i>IAM</i><i>CloudWatch</i><i>JSON normalization</i><i>RSS</i><i>NVD API</i><i>REST</i>
-        </div>
-      </article>
+<article>
+<h3>Serverless Threat Intelligence Pipeline</h3>
+<span class="when">2025 &ndash; Present &middot; <a href="https://cyberloops.net">cyberloops.net</a></span>
+<p>An event-driven AWS pipeline that ingests CVE records, ransomware disclosures, and open threat intel, normalizes them into one schema, and publishes a curated feed.</p>
+<div class="stack">
+<i>Python</i><i>AWS Lambda</i><i>EventBridge</i><i>S3</i><i>CloudFront</i><i>IAM</i><i>CloudWatch</i><i>JSON normalization</i><i>RSS</i><i>NVD API</i><i>REST</i>
+</div>
+</article>
 
-      <article>
-        <h3>ML Network Baselining &amp; Anomaly Detection</h3>
-        <span class="when">2024 &middot; from SANS SEC595</span>
-        <p>Stood up a WordPress site in AWS, mirrored its live traffic through a PCA analysis script, and turned the Zeek output into a visual baseline so an admin can spot when activity deviates from normal.</p>
-        <div class="stack">
-          <i>AWS</i><i>VPC traffic mirroring</i><i>Zeek</i><i>PCA</i><i>Python</i><i>anomaly detection</i><i>data visualization</i>
-        </div>
-      </article>
+<article>
+<h3>ML Network Baselining &amp; Anomaly Detection</h3>
+<span class="when">2024 &middot; from SANS SEC595</span>
+<p>Stood up a WordPress site in AWS, mirrored its live traffic through a PCA analysis script, and turned the Zeek output into a visual baseline so an admin can spot when activity deviates from normal.</p>
+<div class="stack">
+<i>AWS</i><i>VPC traffic mirroring</i><i>Zeek</i><i>PCA</i><i>Python</i><i>anomaly detection</i><i>data visualization</i>
+</div>
+</article>
 
-      <article>
-        <h3>Wireless Site Survey Rig</h3>
-        <span class="when">2025 &ndash; Present</span>
-        <p>A headless 802.11 survey platform running Kismet on a WiFi Pineapple MK7, with monitor-mode capture and GPS tagging for wardriving and site surveys.</p>
-        <div class="stack">
-          <i>Kismet</i><i>WiFi Pineapple MK7</i><i>OpenWrt</i><i>MT7612U monitor mode</i><i>802.11 a/b/g/n/ac</i><i>aircrack-ng</i><i>gpsd</i><i>u-blox GPS</i><i>Linux CLI</i><i>SSH</i>
-        </div>
-      </article>
+<article>
+<h3>Wireless Site Survey Rig</h3>
+<span class="when">2025 &ndash; Present</span>
+<p>A headless 802.11 survey platform running Kismet on a WiFi Pineapple MK7, with monitor-mode capture and GPS tagging for wardriving and site surveys.</p>
+<div class="stack">
+<i>Kismet</i><i>WiFi Pineapple MK7</i><i>OpenWrt</i><i>MT7612U monitor mode</i><i>802.11 a/b/g/n/ac</i><i>aircrack-ng</i><i>gpsd</i><i>u-blox GPS</i><i>Linux CLI</i><i>SSH</i>
+</div>
+</article>
 
-      <article>
-        <h3><a href="https://github.com/KyberCloud/CMS-484-CS_Capstone">Sports Predictive Modeling Platform</a></h3>
-        <span class="when">2024 &middot; CS capstone, four-person team</span>
-        <p>Led a four-person capstone team building an NBA prediction system that pulled league data, computed advanced metrics like PER and box plus/minus, and returned team and player forecasts through a visual interface.</p>
-        <div class="stack">
-          <i>Python</i><i>nba_api</i><i>predictive modeling</i><i>data visualization</i><i>team lead</i>
-        </div>
-      </article>
+<article>
+<h3><a href="https://github.com/KyberCloud/CMS-484-CS_Capstone">Sports Predictive Modeling Platform</a></h3>
+<span class="when">2024 &middot; CS capstone, four-person team</span>
+<p>Led a four-person capstone team building an NBA prediction system that pulled league data, computed advanced metrics like PER and box plus/minus, and returned team and player forecasts through a visual interface.</p>
+<div class="stack">
+<i>Python</i><i>nba_api</i><i>predictive modeling</i><i>data visualization</i><i>team lead</i>
+</div>
+</article>
 
-      <article>
-        <h3><a href="https://github.com/KyberCloud/Sorting_Algorithm_Project">Sorting Algorithm Benchmark</a></h3>
-        <span class="when">2022 &middot; CS50 final project</span>
-        <p>A Python harness that benchmarks seven sorting algorithms against random, pre-sorted, reversed, and half-partitioned datasets at configurable sizes, then plots the runtime results.</p>
-        <div class="stack">
-          <i>Python</i><i>algorithm analysis</i><i>Plotly</i><i>benchmarking</i>
-        </div>
-      </article>
+<article>
+<h3><a href="https://github.com/KyberCloud/Sorting_Algorithm_Project">Sorting Algorithm Benchmark</a></h3>
+<span class="when">2022 &middot; CS50 final project</span>
+<p>A Python harness that benchmarks seven sorting algorithms against random, pre-sorted, reversed, and half-partitioned datasets at configurable sizes, then plots the runtime results.</p>
+<div class="stack">
+<i>Python</i><i>algorithm analysis</i><i>Plotly</i><i>benchmarking</i>
+</div>
+</article>
 
-      <h2>Certifications</h2>
-      <div class="cert"><b>OSCP</b><span>In progress &mdash; challenge labs and 5 multi-machine AD sets complete</span></div>
-      <div class="cert"><b>eJPT</b><span>eLearnSecurity Junior Penetration Tester</span></div>
+<h2>Certifications</h2>
+<div class="cert"><b>OSCP</b><span>In progress &mdash; challenge labs and 5 multi-machine AD sets complete</span></div>
+<div class="cert"><b>eJPT</b><span>eLearnSecurity Junior Penetration Tester</span></div>
 
-      <h2>SANS Courses</h2>
-      <div class="cert"><b>SEC542</b><span>Web App Penetration Testing and Ethical Hacking, 2025</span></div>
-      <div class="cert"><b>SEC595</b><span>Applied Data Science and AI/Machine Learning for Cybersecurity, 2024</span></div>
+<h2>SANS Courses</h2>
+<div class="cert"><b>SEC542</b><span>Web App Penetration Testing and Ethical Hacking, 2025</span></div>
+<div class="cert"><b>SEC595</b><span>Applied Data Science and AI/Machine Learning for Cybersecurity, 2024</span></div>
 
-      <h2>Education</h2>
-      <div class="edu">
-        <b>B.S. Computer Science, Minor in Mathematics</b>
-        <span class="when">Rollins College &middot; Winter Park, FL &middot; 2023</span>
-        <p>Discrete Mathematics, Linear Algebra, Probability and Statistics, Calculus I&ndash;III</p>
-      </div>
-    </main>
-  </div>
+<h2>Education</h2>
+<div class="edu">
+<b>B.S. Computer Science, Minor in Mathematics</b>
+<span class="when">Rollins College &middot; Winter Park, FL &middot; 2023</span>
+<p>Discrete Mathematics, Linear Algebra, Probability and Statistics, Calculus I&ndash;III</p>
+</div>
+</main>
+</div>
 
-  <footer>
-    <span>August Alexander &middot; New Rochelle, NY</span>
-    <span><a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a></span>
-  </footer>
+<footer>
+<span>August Alexander &middot; New Rochelle, NY</span>
+<span><a href="mailto:aalexand@rednaxela.technology">aalexand@rednaxela.technology</a></span>
+</footer>
 
 </div>
 </body>
